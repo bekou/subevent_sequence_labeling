@@ -1,0 +1,45 @@
+# training
+nepochs                 = 150
+optimizer               = Adam
+activation              = tanh
+learning_rate           = 0.1
+use_dropout             = True
+ner_loss                = softmax#crf # or softmax
+
+ner_classes             = BIO #or EC for entity classification
+use_BIO_LSTM            = False
+bin_features            = AVG # AVG, CNN, MAX, WORD_ATTENTION
+bin_representation      = avg #max, avg
+tweet_representation      = LSTM #LSTM, embeddings
+non_linearity_bin_features = no
+pad_length=30
+
+
+
+batch_norm              = True
+n_filters               = 20
+filter_sizes            = [3, 4, 5]
+dropout_cnn             = 0.2
+cnn_pool                = max
+dropout_lstm1_output    = 0
+
+#hyperparameters
+dropout_embedding       = 0.2
+dropout_lstm2_output     = 0.2
+dropout_fcl_ner         = 1
+dropout_fcl_rel         = 1
+hidden_dim              = 32
+num_lstm_layers         = 1
+ 
+
+# pretrained embeddings
+pretrained_embeddings   =False
+filename_embeddings     ="../../../twitter_data/glove_embeddings/glove.twitter.27B.25d.txt"
+
+embeddings_size        =25 # when pretrained =False
+
+# dataset
+filename_dev            = "../../../outputs/final_tokenized_with_dev/dev_nrt_d1_tokenized_final.txt"
+filename_test           = "../../../outputs/final_tokenized_with_dev/test_nrt_d1_tokenized_final.txt"
+filename_train          = "../../../outputs/final_tokenized_with_dev/train_nrt_d1_tokenized_final.txt"
+
